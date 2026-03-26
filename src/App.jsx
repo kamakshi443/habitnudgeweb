@@ -1,159 +1,67 @@
-const featureHighlights = [
-  {
-    title: "Daily Focus",
-    text: "See today’s habits, tap done fast, and keep routines moving even on busy days."
-  },
-  {
-    title: "Gentle Nudges",
-    text: "Smart reminders help users come back before one missed day becomes a dropped routine."
-  },
-  {
-    title: "Visible Progress",
-    text: "Streaks, completion rates, and habit wins make consistency feel rewarding."
-  }
-];
-
-const appFeatures = [
-  {
-    title: "Habit plans for real life",
-    text: "Track skincare, fitness, study, hydration, sleep, and self-care habits in one place."
-  },
-  {
-    title: "Reminder system that keeps up",
-    text: "HabitNudge helps users show up with timely prompts instead of relying on memory."
-  },
-  {
-    title: "Insights that prevent drop-off",
-    text: "Weekly trends and progress signals highlight what is working and where routines need support."
-  },
-  {
-    title: "Built for glow-ups and growth",
-    text: "Designed for ambitious users who want better routines, better energy, and better follow-through."
-  }
-];
-
-const audienceCards = [
-  {
-    title: "Students",
-    text: "Keep study streaks, sleep routines, and self-care habits steady during packed weeks."
-  },
-  {
-    title: "Working Professionals",
-    text: "Balance health, focus, and consistency without a heavy or stressful routine planner."
-  },
-  {
-    title: "Glow-up Communities",
-    text: "Perfect for skincare, hydration, walking, journaling, and confidence-building challenges."
-  }
-];
-
-const socialProof = [
-  "Morning skincare completed 12 days in a row",
-  "Hydration streak back on track after a missed day",
-  "Study routine improved with shorter daily sessions"
-];
-
 const testimonials = [
   {
     quote:
-      "I stopped blaming myself and finally built a routine I can follow. It feels calm now, not chaotic.",
-    name: "Ananya, working professional"
+      "I finally understood why I wasn’t consistent. It made everything feel lighter.",
+    name: "Ananya"
   },
   {
     quote:
-      "The clarity piece helped the most. I knew what mattered and didn’t overthink every day.",
-    name: "Rohit, developer"
+      "Simple advice, but it actually worked. I stopped restarting every Monday.",
+    name: "Rohit"
   },
   {
     quote:
-      "I’m consistent in a way I haven’t been before. Small, simple habits finally stuck.",
-    name: "Meera, student"
+      "I felt clarity for the first time in months. That alone was a huge shift.",
+    name: "Meera"
   }
 ];
 
 const habitNudgeDifferences = [
   {
     title: "Not another habit tracker",
-    text: "This is built to feel human, not like a dashboard you avoid."
+    text: "Built to feel human, not like a dashboard you avoid."
   },
   {
-    title: "No overwhelm",
-    text: "You start with one clear habit, so you don’t burn out in week one."
+    title: "No guilt, no pressure",
+    text: "You don’t get punished for missing days. You get guided back."
   },
   {
     title: "A simple system",
-    text: "Small steps, gentle nudges, and consistency without pressure."
+    text: "Small steps, simple routines, and progress that feels doable."
   },
   {
-    title: "Guidance that feels real",
-    text: "You get clarity and direction, not generic advice or guilt."
+    title: "Human guidance",
+    text: "Real clarity and direction instead of generic advice."
   }
-];
-
-const momentumStats = [
-  { value: "4.9/5", label: "feel-good product direction" },
-  { value: "30-day", label: "challenge-friendly habit format" },
-  { value: "3x", label: "more memorable with streak-driven UX" }
 ];
 
 const painPoints = [
-  "I plan my day, then somehow nothing happens.",
-  "I know what I should do… but I don’t do it.",
-  "I overthink simple habits until they feel too big.",
-  "I tell myself I’m lazy, but I know that’s not true.",
-  "Why can’t I stay consistent even when I really want to?",
-  "I end most nights feeling guilty and frustrated."
+  "You plan your day… but don’t follow it.",
+  "You start things… but don’t finish.",
+  "You feel guilty at night.",
+  "And the same cycle repeats."
 ];
 
-const monetizationCards = [
+const services = [
   {
-    tier: "Free",
-    price: "₹0",
-    text: "Bring in new users with habit tracking, streaks, reminders, and beautifully simple daily check-ins."
+    title: "SaaS MVP",
+    text: "I help you build your product fast without overcomplicating.",
+    cta: "Build My Product"
   },
   {
-    tier: "Premium",
-    price: "₹299/mo",
-    text: "Unlock unlimited habits, deeper insights, better coaching, and advanced retention features that can generate revenue."
-  },
-  {
-    tier: "Challenge Packs",
-    price: "₹499+",
-    text: "Sell glow-up plans, skincare challenges, study resets, and creator bundles for niche audiences."
-  }
-];
-
-const growthSteps = [
-  "Create a free challenge or waitlist lead magnet to capture visitors before the app-store launch.",
-  "Turn habit streak screenshots into social content for Instagram, YouTube Shorts, and creator collaborations.",
-  "Add premium features and paid challenge bundles so traffic can convert into recurring revenue."
-];
-
-const faqs = [
-  {
-    question: "What is HabitNudge?",
-    answer:
-      "HabitNudge is a habit-building app that helps users stay consistent with reminders, streaks, progress tracking, and gentle coaching."
-  },
-  {
-    question: "Who is it made for?",
-    answer:
-      "It is designed for people building healthier, calmer, and more confident routines, especially around glow-up, wellness, study, and personal growth habits."
-  },
-  {
-    question: "What makes it different?",
-    answer:
-      "HabitNudge focuses on emotional momentum. It is not just a tracker, it is meant to help users keep going when motivation drops."
+    title: "Frontend Fix",
+    text: "Clean, fix, and improve your UI for better performance.",
+    cta: "Fix My Frontend"
   }
 ];
 
 const contactDetails = [
   { label: "Founder", value: "Kamakshi" },
-  { label: "Role", value: "Software Engineer" },
-  { label: "Phone", value: "8700246242", href: "tel:8700246242" },
+  { label: "WhatsApp", value: "+91 8700246242", href: "https://wa.me/918700246242" },
   {
     label: "Email",
-    value: "kamkashi443gmail.com"
+    value: "kamkashi443@gmail.com",
+    href: "mailto:kamkashi443@gmail.com"
   }
 ];
 
@@ -213,24 +121,19 @@ function App() {
           </a>
 
           <div className="nav-actions">
-            <a href="#features">Features</a>
-            <a href="#audience">Who it’s for</a>
-            <a href="#faq">FAQ</a>
-            <a className="button button-soft" href="mailto:hello@thehabitnudge.com">
-              Contact
-            </a>
+            <a href="#routine-check">Free Check</a>
+            <a href="#clarity-call">1:1 Call</a>
+            <a href="#contact">Contact</a>
           </div>
         </nav>
 
         <div className="hero-layout" id="top">
           <section className="hero-copy">
-            <p className="eyebrow">If you feel stuck, this is for you</p>
-            <h1>
-              You keep telling yourself you’ll change, but the day ends the same and you feel guilty again.
-            </h1>
+            <p className="eyebrow">Stop scrolling moment</p>
+            <h1>You know what to do… but still don’t do it.</h1>
             <p className="hero-text">
-              HabitNudge helps you rebuild your routine with a simple, human plan you can actually follow.
-              We start small, remove the pressure, and give you a clear next step that feels doable.
+              You’re not lazy. You’re stuck in a broken routine. I help you fix it with a simple system that
+              actually works.
             </p>
 
             <div className="hero-actions">
@@ -242,31 +145,7 @@ function App() {
               </a>
             </div>
 
-            <p className="hero-soft-line">You don’t need a lecture. You need a system that fits your real life.</p>
-
-            <div className="hero-stats">
-              <article>
-                <strong>Daily tracking</strong>
-                <span>Fast check-ins for habits that matter most</span>
-              </article>
-              <article>
-                <strong>Smart nudges</strong>
-                <span>Reminders that support action without pressure</span>
-              </article>
-              <article>
-                <strong>Habit streaks</strong>
-                <span>Motivation that grows through visible momentum</span>
-              </article>
-            </div>
-
-            <div className="momentum-strip">
-              {momentumStats.map((item) => (
-                <article className="momentum-card" key={item.label}>
-                  <strong>{item.value}</strong>
-                  <span>{item.label}</span>
-                </article>
-              ))}
-            </div>
+            <p className="hero-soft-line">Real guidance. No overthinking. No pressure.</p>
           </section>
 
           <aside className="hero-showcase">
@@ -315,30 +194,11 @@ function App() {
       </header>
 
       <main>
-        <section className="content-section" id="pain">
-          <SectionTitle
-            eyebrow="If this feels familiar"
-            title="You are not alone in this."
-            text="These are the patterns most people hide but feel every day."
-          />
-
-          <div className="pain-grid">
-            {painPoints.map((item) => (
-              <article className="pain-card" key={item}>
-                <span className="pain-dot">•</span>
-                <p>{item}</p>
-              </article>
-            ))}
-          </div>
-
-          <p className="pain-close">It’s not laziness. It’s a lack of a system that fits your real life.</p>
-        </section>
-
         <section className="content-section routine-check" id="routine-check">
           <SectionTitle
             eyebrow="Free routine check"
-            title="A quick check-in to see what’s actually off."
-            text="Answer a few simple questions and get a personalized habit nudge."
+            title="Get Your Routine Fix in 2 Minutes"
+            text="Answer a few quick questions and understand what’s actually holding you back."
           />
 
           <form className="routine-form">
@@ -373,44 +233,51 @@ function App() {
               </select>
             </label>
 
-            <label className="routine-field">
-              <span>Focus level these days?</span>
-              <select name="routine-focus">
-                <option value="">Select one</option>
-                <option value="strong">Good focus</option>
-                <option value="mixed">Up and down</option>
-                <option value="low">Low focus</option>
-              </select>
-            </label>
-
             <button className="button routine-submit" type="button">
-              Get your personalized habit suggestion
+              Generate My Plan
             </button>
           </form>
+        </section>
+
+        <section className="content-section" id="pain">
+          <SectionTitle
+            eyebrow="Pain"
+            title="This is the loop most people live in."
+            text="If this feels familiar, you’re not alone."
+          />
+
+          <div className="pain-grid">
+            {painPoints.map((item) => (
+              <article className="pain-card" key={item}>
+                <span className="pain-dot">•</span>
+                <p>{item}</p>
+              </article>
+            ))}
+          </div>
+
+          <p className="pain-close">It’s not laziness. You just don’t have the right system.</p>
         </section>
 
         <section className="content-section founder-section" id="founder">
           <SectionTitle
             eyebrow="Founder"
             title="Hi, I’m Kamakshi."
-            text="I built HabitNudge because I know what it’s like to care a lot and still feel stuck."
+            text="I’ve seen how frustrating it is to feel stuck even when you want to improve."
           />
 
           <div className="founder-grid">
             <div className="founder-card">
               <p>
-                I struggled with consistency for years. I would plan, feel motivated, then lose the rhythm and feel guilty
-                at night.
+                That’s why I focus on simple, realistic systems — not complicated routines that nobody follows.
               </p>
               <p>
-                The turning point was realizing it wasn’t laziness. I just didn’t have a system that fit real life. That’s
-                why HabitNudge exists — to make habits feel doable, not heavy.
+                The goal is clarity first, then a routine that actually fits your day.
               </p>
             </div>
             <div className="founder-card founder-highlight">
               <p className="founder-label">How I help</p>
-              <h3>Simple systems, gentle structure, and clarity that keeps you moving.</h3>
-              <p>I keep it honest, practical, and realistic so it doesn’t fall apart after day three.</p>
+              <h3>Simple systems that help you follow through.</h3>
+              <p>Real guidance without the overwhelm or pressure.</p>
             </div>
           </div>
         </section>
@@ -418,27 +285,26 @@ function App() {
         <section className="content-section clarity-section" id="clarity-call">
           <SectionTitle
             eyebrow="15-minute clarity"
-            title="A small breakthrough that changes how your day feels."
-            text="This is not just a call. It’s a short, focused moment to cut through the noise and finally see a clear way forward."
+            title="Fix Your Routine in 15 Minutes — Or Stay Stuck"
+            text="In this 1:1 clarity call, we identify exactly what’s not working and fix it with a simple plan you can actually follow."
           />
 
           <div className="clarity-grid">
             <div className="clarity-card">
               <h3>What happens in the session</h3>
-              <p>We talk through what’s been breaking your routine, then simplify it into one clear next step.</p>
+              <p>We find the real block and turn it into a clear, doable routine.</p>
             </div>
             <div className="clarity-card">
               <h3>What you get</h3>
               <ul>
-                <li>Clarity on what is actually blocking you</li>
-                <li>A simple plan that fits your real day</li>
-                <li>One habit to start with, not ten</li>
-                <li>A calmer way to stay consistent</li>
+                <li>Clear routine breakdown</li>
+                <li>Identify the real problem</li>
+                <li>Simple actionable plan</li>
               </ul>
             </div>
             <div className="clarity-card">
               <h3>Why it works</h3>
-              <p>Clarity removes pressure. Simplicity creates action. That is how consistency starts.</p>
+              <p>Clarity + simplicity gives you momentum without pressure.</p>
             </div>
           </div>
 
@@ -446,9 +312,7 @@ function App() {
             <a className="button" href="#contact">
               Book My Call
             </a>
-            <p className="clarity-urgency">
-              Limited slots, kept intentionally small for personal attention. If you’re ready, book now.
-            </p>
+            <p className="clarity-urgency">Only 5 slots available per day. Personal attention in every call.</p>
           </div>
         </section>
 
@@ -481,8 +345,8 @@ function App() {
         <section className="content-section product-section" id="product">
           <SectionTitle
             eyebrow="Coming soon"
-            title="HabitNudge is coming soon."
-            text="A simple habit system that helps you track what matters, get smart nudges, and stay consistent."
+            title="HabitNudge (Coming Soon)"
+            text="A simple habit system with smart nudges to help you stay consistent without feeling overwhelmed."
           />
 
           <div className="product-card">
@@ -498,8 +362,8 @@ function App() {
         <section className="content-section difference-section" id="difference">
           <SectionTitle
             eyebrow="Why HabitNudge is different"
-            title="Simple, human, and built for real follow-through."
-            text="No overwhelm. No guilt. Just a system that feels doable and actually sticks."
+            title="Not Another Habit Tracker"
+            text="No guilt. No pressure. Just a simple system with human guidance that works in real life."
           />
 
           <div className="difference-grid">
@@ -512,118 +376,31 @@ function App() {
           </div>
         </section>
 
-        <section className="content-section" id="features">
+        <section className="content-section services-section" id="services">
           <SectionTitle
-            eyebrow="Why users will stay"
-            title="A homepage that explains the app in seconds"
-            text="This website introduces HabitNudge as a calming but motivating habit companion, with clear value for first-time visitors landing on your domain."
+            eyebrow="Dev services"
+            title="Build faster without the chaos"
+            text="Short, focused help for founders who need things shipped."
           />
 
-          <div className="highlight-grid">
-            {featureHighlights.map((item) => (
-              <article className="highlight-card" key={item.title}>
+          <div className="services-grid">
+            {services.map((item) => (
+              <article className="service-card" key={item.title}>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
+                <a className="button button-ghost" href="#contact">
+                  {item.cta}
+                </a>
               </article>
             ))}
-          </div>
-        </section>
-
-        <section className="content-section split-layout">
-          <div className="feature-panel">
-            <SectionTitle
-              eyebrow="App benefits"
-              title="Everything visitors need to understand before downloading"
-              text="The page now shows what HabitNudge does, who it helps, and why the product feels useful instead of generic."
-            />
-
-            <div className="feature-grid">
-              {appFeatures.map((item) => (
-                <article className="feature-card" key={item.title}>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="proof-panel">
-            <SectionTitle
-              eyebrow="The feeling"
-              title="Supportive, attractive, and focused on momentum"
-              text="The visual direction uses warm color, soft glass panels, stronger typography, and product-style UI cards to make the brand feel premium."
-            />
-
-            <div className="proof-list">
-              {socialProof.map((item) => (
-                <article className="proof-card" key={item}>
-                  <span className="proof-dot" />
-                  <p>{item}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="content-section" id="audience">
-          <SectionTitle
-            eyebrow="Made for"
-            title="A better fit for the people most likely to love the app"
-            text="HabitNudge is positioned for audiences who care about visible progress, realistic routines, and a polished self-improvement experience."
-          />
-
-          <div className="audience-grid">
-            {audienceCards.map((item) => (
-              <article className="audience-card" key={item.title}>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="content-section split-layout" id="monetize">
-          <div className="feature-panel">
-            <SectionTitle
-              eyebrow="Revenue path"
-              title="Designed to turn attention into users and users into income"
-              text="A beautiful site helps traffic stay longer, but real earning comes from clear product packaging. HabitNudge now presents a stronger premium story for launch."
-            />
-
-            <div className="pricing-grid">
-              {monetizationCards.map((item) => (
-                <article className="price-card" key={item.tier}>
-                  <p className="price-tier">{item.tier}</p>
-                  <h3>{item.price}</h3>
-                  <p>{item.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="proof-panel">
-            <SectionTitle
-              eyebrow="Growth"
-              title="What helps a site reach more people"
-              text="No design can promise millions of users by itself, but stronger positioning, better visuals, and clear conversion paths can make every visitor more valuable."
-            />
-
-            <div className="growth-list">
-              {growthSteps.map((item) => (
-                <article className="growth-card" key={item}>
-                  <span className="growth-number">0{growthSteps.indexOf(item) + 1}</span>
-                  <p>{item}</p>
-                </article>
-              ))}
-            </div>
           </div>
         </section>
 
         <section className="content-section" id="testimonials">
           <SectionTitle
             eyebrow="Testimonials"
-            title="Real clarity, real consistency"
-            text="Short wins from people who wanted a routine that felt simple and doable."
+            title="Real words from people who felt stuck"
+            text="Short, honest feedback from clarity calls and routine fixes."
           />
 
           <div className="testimonial-grid">
@@ -639,10 +416,8 @@ function App() {
         <section className="content-section cta-band" id="closing-cta">
           <div className="cta-copy">
             <p className="eyebrow">Final nudge</p>
-            <h2>You don’t have to stay stuck in the same loop another week.</h2>
-            <p className="section-text">
-              Take one small step that gives you clarity and momentum today.
-            </p>
+            <h2>You don’t need to stay stuck anymore.</h2>
+            <p className="section-text">Start now with one simple step.</p>
           </div>
           <div className="closing-actions">
             <a className="button" href="#contact">
@@ -657,8 +432,8 @@ function App() {
         <section className="content-section" id="contact">
           <SectionTitle
             eyebrow="Contact"
-            title="Let’s talk about what you need"
-            text="Send a quick message and I’ll reply fast. WhatsApp is the easiest, email works too."
+            title="Want help? Just reach out."
+            text="I usually reply within a few hours. WhatsApp is fastest, email works too."
           />
 
           <div className="contact-grid">
@@ -676,24 +451,11 @@ function App() {
             ))}
           </div>
         </section>
-
-        <section className="content-section" id="faq">
-          <SectionTitle
-            eyebrow="FAQ"
-            title="Clear answers for first-time visitors"
-            text="These answers reduce confusion and help the site feel launch-ready even before app store links are added."
-          />
-
-          <div className="faq-grid">
-            {faqs.map((item) => (
-              <article className="faq-card" key={item.question}>
-                <h3>{item.question}</h3>
-                <p>{item.answer}</p>
-              </article>
-            ))}
-          </div>
-        </section>
       </main>
+
+      <a className="button sticky-cta" href="#contact">
+        Fix My Routine
+      </a>
     </div>
   );
 }
