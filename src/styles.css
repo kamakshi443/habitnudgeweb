@@ -774,7 +774,7 @@ a:hover {
 .floating-card {
   position: absolute;
   right: -10px;
-  bottom: -40px;
+  bottom: -10px;
   max-width: 220px;
   padding: 18px 20px;
 }

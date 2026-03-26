@@ -116,10 +116,9 @@ function App() {
         <div className="hero-layout" id="top">
           <section className="hero-copy">
             <p className="eyebrow">Stop scrolling moment</p>
-            <h1>You know what to do… but still don’t do it.</h1>
+            <h1>You know what to do… but you still don’t do it.</h1>
             <p className="hero-text">
-              You’re not lazy. You’re stuck in a broken system. I help you fix it with a simple routine that
-              actually works.
+              It’s not laziness. It’s a broken system. I help you fix it with a simple routine that finally works.
             </p>
 
             <div className="hero-actions">
@@ -186,9 +185,10 @@ function App() {
         <section className="content-section routine-check" id="routine-check">
           <SectionTitle
             eyebrow="Free routine check"
-            title="Get Your Routine Fix in 2 Minutes (No Signup)"
-            text="Answer a few quick questions and understand what’s actually holding you back."
+            title="Get Your Personalized Routine Fix in 2 Minutes"
+            text="Answer 3 quick questions and instantly see what’s holding you back."
           />
+          <p className="section-text">No signup. No pressure. Just clarity.</p>
 
           <form className="routine-form">
             <label className="routine-field">
@@ -227,7 +227,10 @@ function App() {
             </button>
           </form>
           <div className="cta-inline">
-            <a className="button button-ghost" href="#clarity-call">
+            <a className="button" href="#contact">
+              Fix My Routine
+            </a>
+            <a className="button button-ghost" href="#contact">
               Book 15-min Call
             </a>
           </div>
@@ -251,8 +254,11 @@ function App() {
 
           <p className="pain-close">It’s not laziness. It’s lack of a system.</p>
           <div className="cta-inline">
-            <a className="button" href="#clarity-call">
+            <a className="button" href="#contact">
               Fix My Routine
+            </a>
+            <a className="button button-ghost" href="#contact">
+              Book 15-min Call
             </a>
           </div>
         </section>
@@ -261,17 +267,17 @@ function App() {
           <SectionTitle
             eyebrow="Founder"
             title="Hi, I’m Kamakshi."
-            text="I’ve been stuck too — wanting change and still struggling to follow through."
+            text="I’ve been stuck too — wanting change, planning everything, then still falling off."
           />
 
           <div className="founder-grid">
             <div className="founder-card">
               <p>
-                I kept planning my days, then watching them slip away. It felt heavy and frustrating.
+                I kept planning my days and ending them feeling guilty. I wasn’t lazy — I just didn’t have a
+                system that fit real life.
               </p>
               <p>
-                The realization was simple: it wasn’t laziness. I just didn’t have a system that fit my real
-                life. That’s why HabitNudge exists.
+                That’s why I built HabitNudge: to make routines feel doable, not heavy.
               </p>
             </div>
             <div className="founder-card founder-highlight">
@@ -279,6 +285,14 @@ function App() {
               <h3>Simple systems that help you follow through.</h3>
               <p>Clarity first, small steps next, and a routine that actually fits your day.</p>
             </div>
+          </div>
+          <div className="cta-inline">
+            <a className="button" href="#contact">
+              Fix My Routine
+            </a>
+            <a className="button button-ghost" href="#contact">
+              Book 15-min Call
+            </a>
           </div>
         </section>
 
@@ -312,10 +326,10 @@ function App() {
             <a className="button" href="#contact">
               Book My Call
             </a>
-            <p className="clarity-urgency">Only 5 people per day. Personal attention in every call.</p>
+            <p className="clarity-urgency">⚠ I only take 5 calls per day to keep it personal.</p>
           </div>
           <p className="clarity-note">
-            If you’ve been stuck for months, this can change it in 15 minutes.
+            If you’ve been stuck for weeks or months… this 15-minute call can change that.
           </p>
         </section>
 
@@ -346,7 +360,7 @@ function App() {
           <SectionTitle
             eyebrow="Why HabitNudge is different"
             title="Not Another Habit Tracker"
-            text="No guilt. No pressure. No overtracking. Just a simple system with human guidance."
+            text="No guilt. No pressure. No complex tracking. Just a simple, human system that actually works."
           />
 
           <div className="difference-grid">
@@ -363,7 +377,7 @@ function App() {
           <SectionTitle
             eyebrow="Visual trust"
             title="See the calm, simple system you’ll use every day."
-            text="Use the habit UI in the hero (right side), and these dashboards mid-page to build trust fast."
+            text="Use the habit dashboard on the hero right side, and show progress + streak visuals near the product section."
           />
 
           <div className="visual-grid">
@@ -420,7 +434,7 @@ function App() {
           <div className="cta-copy">
             <p className="eyebrow">Final nudge</p>
             <h2>You don’t need to stay stuck anymore.</h2>
-            <p className="section-text">Start now with one simple step.</p>
+            <p className="section-text">You’re not broken — you just need the right system. Start now.</p>
           </div>
           <div className="closing-actions">
             <a className="button" href="#contact">
