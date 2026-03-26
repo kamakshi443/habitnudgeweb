@@ -26,37 +26,23 @@ const habitNudgeDifferences = [
     text: "You don’t get punished for missing days. You get guided back."
   },
   {
-    title: "A simple system",
-    text: "Small steps, simple routines, and progress that feels doable."
+    title: "No overtracking",
+    text: "Track only what matters so the system stays light and doable."
   },
   {
-    title: "Human guidance",
-    text: "Real clarity and direction instead of generic advice."
+    title: "Simple + human",
+    text: "Clear guidance and a simple system that works in real life."
   }
 ];
 
 const painPoints = [
-  "You plan your day… but don’t follow it.",
-  "You start things… but don’t finish.",
-  "You feel guilty at night.",
-  "And the same cycle repeats."
-];
-
-const services = [
-  {
-    title: "SaaS MVP",
-    text: "I help you build your product fast without overcomplicating.",
-    cta: "Build My Product"
-  },
-  {
-    title: "Frontend Fix",
-    text: "Clean, fix, and improve your UI for better performance.",
-    cta: "Fix My Frontend"
-  }
+  "I know what to do… but I don’t do it.",
+  "Why can’t I stay consistent?",
+  "I waste time and feel guilty at night.",
+  "I keep restarting and it’s exhausting."
 ];
 
 const contactDetails = [
-  { label: "Founder", value: "Kamakshi" },
   { label: "WhatsApp", value: "+91 8700246242", href: "https://wa.me/918700246242" },
   {
     label: "Email",
@@ -71,9 +57,9 @@ function LogoMark() {
       <svg viewBox="0 0 64 64" role="img">
         <defs>
           <linearGradient id="habitGlow" x1="0%" x2="100%" y1="0%" y2="100%">
-            <stop offset="0%" stopColor="#ff8a5b" />
-            <stop offset="55%" stopColor="#ffcb6b" />
-            <stop offset="100%" stopColor="#59c7a5" />
+            <stop offset="0%" stopColor="#7c3aed" />
+            <stop offset="55%" stopColor="#6366f1" />
+            <stop offset="100%" stopColor="#60a5fa" />
           </linearGradient>
         </defs>
         <rect x="4" y="4" width="56" height="56" rx="20" fill="url(#habitGlow)" />
@@ -132,7 +118,7 @@ function App() {
             <p className="eyebrow">Stop scrolling moment</p>
             <h1>You know what to do… but still don’t do it.</h1>
             <p className="hero-text">
-              You’re not lazy. You’re stuck in a broken routine. I help you fix it with a simple system that
+              You’re not lazy. You’re stuck in a broken system. I help you fix it with a simple routine that
               actually works.
             </p>
 
@@ -145,7 +131,10 @@ function App() {
               </a>
             </div>
 
-            <p className="hero-soft-line">Real guidance. No overthinking. No pressure.</p>
+            <p className="hero-soft-line">Real guidance. No pressure. No overthinking.</p>
+            <a className="scroll-hook" href="#routine-check">
+              ↓ See why you’re stuck
+            </a>
           </section>
 
           <aside className="hero-showcase">
@@ -197,7 +186,7 @@ function App() {
         <section className="content-section routine-check" id="routine-check">
           <SectionTitle
             eyebrow="Free routine check"
-            title="Get Your Routine Fix in 2 Minutes"
+            title="Get Your Routine Fix in 2 Minutes (No Signup)"
             text="Answer a few quick questions and understand what’s actually holding you back."
           />
 
@@ -234,9 +223,14 @@ function App() {
             </label>
 
             <button className="button routine-submit" type="button">
-              Generate My Plan
+              Generate My Plan Instantly
             </button>
           </form>
+          <div className="cta-inline">
+            <a className="button button-ghost" href="#clarity-call">
+              Book 15-min Call
+            </a>
+          </div>
         </section>
 
         <section className="content-section" id="pain">
@@ -255,29 +249,35 @@ function App() {
             ))}
           </div>
 
-          <p className="pain-close">It’s not laziness. You just don’t have the right system.</p>
+          <p className="pain-close">It’s not laziness. It’s lack of a system.</p>
+          <div className="cta-inline">
+            <a className="button" href="#clarity-call">
+              Fix My Routine
+            </a>
+          </div>
         </section>
 
         <section className="content-section founder-section" id="founder">
           <SectionTitle
             eyebrow="Founder"
             title="Hi, I’m Kamakshi."
-            text="I’ve seen how frustrating it is to feel stuck even when you want to improve."
+            text="I’ve been stuck too — wanting change and still struggling to follow through."
           />
 
           <div className="founder-grid">
             <div className="founder-card">
               <p>
-                That’s why I focus on simple, realistic systems — not complicated routines that nobody follows.
+                I kept planning my days, then watching them slip away. It felt heavy and frustrating.
               </p>
               <p>
-                The goal is clarity first, then a routine that actually fits your day.
+                The realization was simple: it wasn’t laziness. I just didn’t have a system that fit my real
+                life. That’s why HabitNudge exists.
               </p>
             </div>
             <div className="founder-card founder-highlight">
               <p className="founder-label">How I help</p>
               <h3>Simple systems that help you follow through.</h3>
-              <p>Real guidance without the overwhelm or pressure.</p>
+              <p>Clarity first, small steps next, and a routine that actually fits your day.</p>
             </div>
           </div>
         </section>
@@ -297,9 +297,9 @@ function App() {
             <div className="clarity-card">
               <h3>What you get</h3>
               <ul>
+                <li>Clarity on what’s actually broken</li>
                 <li>Clear routine breakdown</li>
-                <li>Identify the real problem</li>
-                <li>Simple actionable plan</li>
+                <li>Simple action plan you can start today</li>
               </ul>
             </div>
             <div className="clarity-card">
@@ -312,8 +312,11 @@ function App() {
             <a className="button" href="#contact">
               Book My Call
             </a>
-            <p className="clarity-urgency">Only 5 slots available per day. Personal attention in every call.</p>
+            <p className="clarity-urgency">Only 5 people per day. Personal attention in every call.</p>
           </div>
+          <p className="clarity-note">
+            If you’ve been stuck for months, this can change it in 15 minutes.
+          </p>
         </section>
 
         <section className="content-section" id="how">
@@ -327,18 +330,55 @@ function App() {
             <article className="how-card">
               <span className="how-step">01</span>
               <h3>Book a call</h3>
-              <p>Book a call</p>
             </article>
             <article className="how-card">
               <span className="how-step">02</span>
               <h3>Share your problem</h3>
-              <p>Share your problem</p>
             </article>
             <article className="how-card">
               <span className="how-step">03</span>
               <h3>Get a clear action plan</h3>
-              <p>Get a clear action plan</p>
             </article>
+          </div>
+        </section>
+
+        <section className="content-section difference-section" id="difference">
+          <SectionTitle
+            eyebrow="Why HabitNudge is different"
+            title="Not Another Habit Tracker"
+            text="No guilt. No pressure. No overtracking. Just a simple system with human guidance."
+          />
+
+          <div className="difference-grid">
+            {habitNudgeDifferences.map((item) => (
+              <article className="difference-card" key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="content-section visual-trust" id="visuals">
+          <SectionTitle
+            eyebrow="Visual trust"
+            title="See the calm, simple system you’ll use every day."
+            text="Use the habit UI in the hero (right side), and these dashboards mid-page to build trust fast."
+          />
+
+          <div className="visual-grid">
+            <div className="visual-card">
+              <h3>Habit dashboard</h3>
+              <p>Today’s habits with clear check-ins and a calm layout.</p>
+            </div>
+            <div className="visual-card">
+              <h3>Progress tracker</h3>
+              <p>Weekly progress so you can see what’s working fast.</p>
+            </div>
+            <div className="visual-card">
+              <h3>Streak visuals</h3>
+              <p>Small streak wins that keep you consistent without pressure.</p>
+            </div>
           </div>
         </section>
 
@@ -356,43 +396,6 @@ function App() {
             <a className="button" href="#contact">
               Join Waitlist
             </a>
-          </div>
-        </section>
-
-        <section className="content-section difference-section" id="difference">
-          <SectionTitle
-            eyebrow="Why HabitNudge is different"
-            title="Not Another Habit Tracker"
-            text="No guilt. No pressure. Just a simple system with human guidance that works in real life."
-          />
-
-          <div className="difference-grid">
-            {habitNudgeDifferences.map((item) => (
-              <article className="difference-card" key={item.title}>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="content-section services-section" id="services">
-          <SectionTitle
-            eyebrow="Dev services"
-            title="Build faster without the chaos"
-            text="Short, focused help for founders who need things shipped."
-          />
-
-          <div className="services-grid">
-            {services.map((item) => (
-              <article className="service-card" key={item.title}>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-                <a className="button button-ghost" href="#contact">
-                  {item.cta}
-                </a>
-              </article>
-            ))}
           </div>
         </section>
 
