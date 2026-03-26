@@ -240,6 +240,237 @@ a:hover {
   gap: 18px;
 }
 
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.pain-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--panel);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+}
+
+.pain-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.pain-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: rgba(255, 200, 135, 0.35);
+  color: var(--accent-deep);
+  font-weight: 800;
+}
+
+.pain-close {
+  margin-top: 22px;
+  color: var(--accent-deep);
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+.founder-section .section-title {
+  margin-bottom: 24px;
+}
+
+.founder-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.founder-card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 22px;
+  background: var(--panel);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 12px;
+}
+
+.founder-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.founder-highlight {
+  background: rgba(255, 242, 227, 0.7);
+}
+
+.founder-label {
+  margin: 0;
+  color: var(--accent-deep);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+}
+
+.founder-card h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.clarity-section .section-title {
+  margin-bottom: 26px;
+}
+
+.clarity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.clarity-card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 22px;
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+}
+
+.clarity-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.4rem;
+}
+
+.clarity-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.clarity-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.clarity-card li + li {
+  margin-top: 8px;
+}
+
+.clarity-cta {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.clarity-urgency {
+  margin: 0;
+  color: var(--accent-deep);
+  font-weight: 800;
+}
+
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.how-card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 22px;
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+}
+
+.how-step {
+  display: inline-flex;
+  margin-bottom: 12px;
+  color: var(--accent-deep);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.how-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+}
+
+.how-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.product-section {
+  position: relative;
+}
+
+.product-card {
+  margin-top: 28px;
+  padding: 28px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 14px;
+  max-width: 520px;
+}
+
+.product-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.testimonial-card {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 22px;
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 12px;
+}
+
+.testimonial-quote {
+  margin: 0;
+  color: var(--text);
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.testimonial-name {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
 .hero-stats {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -557,6 +788,12 @@ a:hover {
     rgba(255, 251, 245, 0.88);
 }
 
+.closing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 @media (max-width: 980px) {
   .nav-actions {
     display: none;
@@ -578,6 +815,11 @@ a:hover {
   .faq-grid,
   .contact-grid,
   .feature-grid,
+  .pain-grid,
+  .founder-grid,
+  .clarity-grid,
+  .how-grid,
+  .testimonial-grid,
   .pricing-grid {
     grid-template-columns: 1fr;
   }

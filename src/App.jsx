@@ -53,10 +53,37 @@ const socialProof = [
   "Study routine improved with shorter daily sessions"
 ];
 
+const testimonials = [
+  {
+    quote:
+      "I stopped blaming myself and finally built a routine I can follow. It feels calm now, not chaotic.",
+    name: "Ananya, working professional"
+  },
+  {
+    quote:
+      "The clarity piece helped the most. I knew what mattered and didn’t overthink every day.",
+    name: "Rohit, developer"
+  },
+  {
+    quote:
+      "I’m consistent in a way I haven’t been before. Small, simple habits finally stuck.",
+    name: "Meera, student"
+  }
+];
+
 const momentumStats = [
   { value: "4.9/5", label: "feel-good product direction" },
   { value: "30-day", label: "challenge-friendly habit format" },
   { value: "3x", label: "more memorable with streak-driven UX" }
+];
+
+const painPoints = [
+  "You start strong, then stop halfway.",
+  "You promise yourself tomorrow will be better, then repeat the same day.",
+  "You feel guilty at night because the day slipped away again.",
+  "You know what to do, but still don’t do it.",
+  "You overthink simple habits until they feel impossible.",
+  "You feel inconsistent no matter how much you care."
 ];
 
 const monetizationCards = [
@@ -178,22 +205,23 @@ function App() {
 
         <div className="hero-layout" id="top">
           <section className="hero-copy">
-            <p className="eyebrow">Launch-ready habit app website</p>
-            <h1>Make every routine feel easier to start and easier to keep.</h1>
+            <p className="eyebrow">For people who feel stuck in the same cycle</p>
+            <h1>You’re not broken. You’re just stuck in a routine that isn’t working.</h1>
             <p className="hero-text">
-              HabitNudge helps people stay consistent with daily reminders, streaks,
-              beautiful progress tracking, and supportive nudges for glow-up, wellness,
-              study, and self-growth routines.
+              HabitNudge helps you get clarity, rebuild your routine, and follow through with a simple plan
+              you can actually stick to. No guilt. No complicated system. Just a clear next step.
             </p>
 
             <div className="hero-actions">
               <a className="button" href="#contact">
-                Join the launch
+                Fix My Routine
               </a>
-              <a className="button button-ghost" href="#monetize">
-                See how it earns
+              <a className="button button-ghost" href="#contact">
+                Book 15-min Call
               </a>
             </div>
+
+            <p className="hero-soft-line">You don’t need more motivation. You need clarity.</p>
 
             <div className="hero-stats">
               <article>
@@ -266,6 +294,130 @@ function App() {
       </header>
 
       <main>
+        <section className="content-section" id="pain">
+          <SectionTitle
+            eyebrow="If this feels familiar"
+            title="You are not alone in this."
+            text="These are the patterns most people hide but feel every day."
+          />
+
+          <div className="pain-grid">
+            {painPoints.map((item) => (
+              <article className="pain-card" key={item}>
+                <span className="pain-dot">•</span>
+                <p>{item}</p>
+              </article>
+            ))}
+          </div>
+
+          <p className="pain-close">It’s not laziness. It’s a lack of a system that fits your real life.</p>
+        </section>
+
+        <section className="content-section founder-section" id="founder">
+          <SectionTitle
+            eyebrow="Founder"
+            title="Hi, I’m Kamakshi."
+            text="I help people who feel stuck with routine, consistency, and discipline find a simpler way forward."
+          />
+
+          <div className="founder-grid">
+            <div className="founder-card">
+              <p>
+                I’m not a guru. I’m a guide who helps you make sense of what’s actually not working so you can fix it without
+                overcomplicating your life.
+              </p>
+              <p>
+                My approach is practical and calm: clarity first, tiny steps next, and a routine that fits your real schedule.
+              </p>
+            </div>
+            <div className="founder-card founder-highlight">
+              <p className="founder-label">How I help</p>
+              <h3>Habit clarity, routine fixing, and a simple plan you can follow.</h3>
+              <p>
+                Most people don’t need more motivation. They need a system that feels doable.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="content-section clarity-section" id="clarity-call">
+          <SectionTitle
+            eyebrow="15-minute clarity"
+            title="Leave with a clear next step, not a bigger to-do list."
+            text="This is a focused clarity session for people who feel stuck, inconsistent, or overwhelmed by their routine."
+          />
+
+          <div className="clarity-grid">
+            <div className="clarity-card">
+              <h3>What happens in the session</h3>
+              <p>We cut through the noise, find what is actually blocking you, and simplify the next move.</p>
+            </div>
+            <div className="clarity-card">
+              <h3>What you get</h3>
+              <ul>
+                <li>Clarity on what is breaking your routine</li>
+                <li>A small, realistic plan you can follow</li>
+                <li>Practical next steps for your day</li>
+                <li>A calmer mindset about consistency</li>
+              </ul>
+            </div>
+            <div className="clarity-card">
+              <h3>Why it matters</h3>
+              <p>When you stop guessing, you stop restarting. This gives you direction you can act on immediately.</p>
+            </div>
+          </div>
+
+          <div className="clarity-cta">
+            <a className="button" href="#contact">
+              Book My Call
+            </a>
+            <p className="clarity-urgency">Limited slots. Personal attention. Kept intentionally small.</p>
+          </div>
+        </section>
+
+        <section className="content-section" id="how">
+          <SectionTitle
+            eyebrow="How it works"
+            title="Simple steps, no overthinking."
+            text="Three steps. Clear direction."
+          />
+
+          <div className="how-grid">
+            <article className="how-card">
+              <span className="how-step">01</span>
+              <h3>Book a call</h3>
+              <p>Pick a slot that works for you.</p>
+            </article>
+            <article className="how-card">
+              <span className="how-step">02</span>
+              <h3>Discuss your problem</h3>
+              <p>We talk through what is actually not working.</p>
+            </article>
+            <article className="how-card">
+              <span className="how-step">03</span>
+              <h3>Get a clear plan</h3>
+              <p>Leave with a simple next step you can follow.</p>
+            </article>
+          </div>
+        </section>
+
+        <section className="content-section product-section" id="product">
+          <SectionTitle
+            eyebrow="Coming soon"
+            title="HabitNudge is coming soon."
+            text="A simple habit system that helps you track what matters, get smart nudges, and stay consistent."
+          />
+
+          <div className="product-card">
+            <p>Habit tracking that feels calm and doable.</p>
+            <p>Smart nudges that guide you back when you slip.</p>
+            <p>A simple system built for real-life consistency.</p>
+            <a className="button" href="#contact">
+              Join Waitlist
+            </a>
+          </div>
+        </section>
+
         <section className="content-section" id="features">
           <SectionTitle
             eyebrow="Why users will stay"
@@ -373,24 +525,46 @@ function App() {
           </div>
         </section>
 
-        <section className="content-section cta-band">
+        <section className="content-section" id="testimonials">
+          <SectionTitle
+            eyebrow="Testimonials"
+            title="Real clarity, real consistency"
+            text="Short wins from people who wanted a routine that felt simple and doable."
+          />
+
+          <div className="testimonial-grid">
+            {testimonials.map((item) => (
+              <article className="testimonial-card" key={item.name}>
+                <p className="testimonial-quote">“{item.quote}”</p>
+                <p className="testimonial-name">{item.name}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="content-section cta-band" id="closing-cta">
           <div className="cta-copy">
-            <p className="eyebrow">Ready to grow</p>
-            <h2>Make the domain work like a launch machine, not just a brochure.</h2>
+            <p className="eyebrow">Final nudge</p>
+            <h2>You don’t have to stay stuck in the same loop another week.</h2>
             <p className="section-text">
-              Use this homepage to attract users, build trust fast, collect interest, and guide people toward premium upgrades, challenge packs, or future app downloads.
+              Take one small step that gives you clarity and momentum today.
             </p>
           </div>
-          <a className="button" href="#contact">
-            Contact the founder
-          </a>
+          <div className="closing-actions">
+            <a className="button" href="#contact">
+              Fix My Routine
+            </a>
+            <a className="button button-ghost" href="#contact">
+              Book Call
+            </a>
+          </div>
         </section>
 
         <section className="content-section" id="contact">
           <SectionTitle
             eyebrow="Contact"
-            title="Built and launched by Kamakshi"
-            text="If someone wants to connect about HabitNudge, they can reach out directly using the details below."
+            title="Let’s talk about what you need"
+            text="Send a quick message and I’ll reply fast. WhatsApp is the easiest, email works too."
           />
 
           <div className="contact-grid">
