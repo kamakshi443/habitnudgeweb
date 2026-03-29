@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const testimonials = [
   {
     quote:
@@ -36,10 +38,10 @@ const habitNudgeDifferences = [
 ];
 
 const painPoints = [
-  "I know what to do… but I don’t do it.",
-  "Why can’t I stay consistent?",
-  "I waste time and feel guilty at night.",
-  "I keep restarting and it’s exhausting."
+  "You plan your day… but don’t follow it.",
+  "You start things… but don’t finish.",
+  "You feel guilty at night.",
+  "And the same cycle repeats."
 ];
 
 const contactDetails = [
@@ -57,9 +59,9 @@ function LogoMark() {
       <svg viewBox="0 0 64 64" role="img">
         <defs>
           <linearGradient id="habitGlow" x1="0%" x2="100%" y1="0%" y2="100%">
-            <stop offset="0%" stopColor="#7c3aed" />
-            <stop offset="55%" stopColor="#6366f1" />
-            <stop offset="100%" stopColor="#60a5fa" />
+            <stop offset="0%" stopColor="#ff8a5b" />
+            <stop offset="55%" stopColor="#ffcb6b" />
+            <stop offset="100%" stopColor="#59c7a5" />
           </linearGradient>
         </defs>
         <rect x="4" y="4" width="56" height="56" rx="20" fill="url(#habitGlow)" />
@@ -91,6 +93,52 @@ function SectionTitle({ eyebrow, title, text }) {
 }
 
 function App() {
+  const [routineForm, setRoutineForm] = useState({
+    daily: "",
+    struggle: "",
+    sleep: ""
+  });
+  const [routineLoading, setRoutineLoading] = useState(false);
+  const [routinePlan, setRoutinePlan] = useState(null);
+  const [routineError, setRoutineError] = useState("");
+
+  const canGeneratePlan = Boolean(routineForm.daily && routineForm.struggle && routineForm.sleep);
+
+  const handleRoutinePlan = async () => {
+    if (!canGeneratePlan || routineLoading) {
+      return;
+    }
+
+    setRoutineLoading(true);
+    setRoutineError("");
+    setRoutinePlan(null);
+
+    const apiBase = "https://habitnudge-api.onrender.com" || "http://localhost:8000";
+
+    try {
+      const response = await fetch(`${apiBase}/routine-plan`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          routine_daily: routineForm.daily,
+          biggest_struggle: routineForm.struggle,
+          sleep_timing: routineForm.sleep
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error("Routine plan request failed");
+      }
+
+      const data = await response.json();
+      setRoutinePlan(data);
+    } catch (error) {
+      setRoutineError("We couldn’t generate a plan right now. Please try again in a moment.");
+    } finally {
+      setRoutineLoading(false);
+    }
+  };
+
   return (
     <div className="page-shell">
       <div className="ambient ambient-one" />
@@ -116,9 +164,15 @@ function App() {
         <div className="hero-layout" id="top">
           <section className="hero-copy">
             <p className="eyebrow">Stop scrolling moment</p>
-            <h1>You know what to do… but you still don’t do it.</h1>
+            <h1>
+              You know what to do…
+              <br />
+              but you still don’t do it.
+            </h1>
             <p className="hero-text">
-              It’s not laziness. It’s a broken system. I help you fix it with a simple routine that finally works.
+              It’s not laziness.
+              <br />
+              Your routine is broken — and I’ll help you fix it.
             </p>
 
             <div className="hero-actions">
@@ -132,7 +186,7 @@ function App() {
 
             <p className="hero-soft-line">Real guidance. No pressure. No overthinking.</p>
             <a className="scroll-hook" href="#routine-check">
-              ↓ See why you’re stuck
+              ↓ See why you're stuck
             </a>
           </section>
 
@@ -183,57 +237,156 @@ function App() {
 
       <main>
         <section className="content-section routine-check" id="routine-check">
-          <SectionTitle
-            eyebrow="Free routine check"
-            title="Get Your Personalized Routine Fix in 2 Minutes"
-            text="Answer 3 quick questions and instantly see what’s holding you back."
-          />
-          <p className="section-text">No signup. No pressure. Just clarity.</p>
+          <div className="routine-card">
+            <p className="eyebrow">Free routine check</p>
+            <h2>Get Your Personalized Routine Fix in 2 Minutes</h2>
+            <p className="section-text">
+              Answer 3 quick questions and instantly see what’s holding you back.
+            </p>
+            <p className="routine-note">No signup. No pressure. Just clarity.</p>
 
-          <form className="routine-form">
-            <label className="routine-field">
-              <span>Do you follow your routine daily?</span>
-              <select name="routine-daily">
-                <option value="">Select one</option>
-                <option value="yes">Most days</option>
-                <option value="sometimes">Sometimes</option>
-                <option value="rarely">Rarely</option>
-              </select>
-            </label>
+            <form className="routine-form">
+              <fieldset className="routine-field">
+                <legend>Do you follow your routine daily?</legend>
+                <div className="option-row">
+                  <label className="option-pill">
+                    <input
+                      type="radio"
+                      name="routine-daily"
+                      value="most_days"
+                      checked={routineForm.daily === "most_days"}
+                      onChange={() => setRoutineForm((prev) => ({ ...prev, daily: "most_days" }))}
+                    />
+                    <span>Most days</span>
+                  </label>
+                  <label className="option-pill">
+                    <input
+                      type="radio"
+                      name="routine-daily"
+                      value="sometimes"
+                      checked={routineForm.daily === "sometimes"}
+                      onChange={() => setRoutineForm((prev) => ({ ...prev, daily: "sometimes" }))}
+                    />
+                    <span>Sometimes</span>
+                  </label>
+                  <label className="option-pill">
+                    <input
+                      type="radio"
+                      name="routine-daily"
+                      value="rarely"
+                      checked={routineForm.daily === "rarely"}
+                      onChange={() => setRoutineForm((prev) => ({ ...prev, daily: "rarely" }))}
+                    />
+                    <span>Rarely</span>
+                  </label>
+                </div>
+              </fieldset>
 
-            <label className="routine-field">
-              <span>Biggest struggle right now?</span>
-              <select name="routine-struggle">
-                <option value="">Select one</option>
-                <option value="motivation">Lack of motivation</option>
-                <option value="overthinking">Overthinking</option>
-                <option value="time">No time / too busy</option>
-                <option value="consistency">Consistency</option>
-              </select>
-            </label>
+              <fieldset className="routine-field">
+                <legend>Biggest struggle right now?</legend>
+                <div className="option-row">
+                  <label className="option-pill">
+                    <input
+                      type="radio"
+                      name="routine-struggle"
+                      value="motivation"
+                      checked={routineForm.struggle === "motivation"}
+                      onChange={() => setRoutineForm((prev) => ({ ...prev, struggle: "motivation" }))}
+                    />
+                    <span>Motivation</span>
+                  </label>
+                  <label className="option-pill">
+                    <input
+                      type="radio"
+                      name="routine-struggle"
+                      value="overthinking"
+                      checked={routineForm.struggle === "overthinking"}
+                      onChange={() => setRoutineForm((prev) => ({ ...prev, struggle: "overthinking" }))}
+                    />
+                    <span>Overthinking</span>
+                  </label>
+                  <label className="option-pill">
+                    <input
+                      type="radio"
+                      name="routine-struggle"
+                      value="consistency"
+                      checked={routineForm.struggle === "consistency"}
+                      onChange={() => setRoutineForm((prev) => ({ ...prev, struggle: "consistency" }))}
+                    />
+                    <span>Consistency</span>
+                  </label>
+                </div>
+              </fieldset>
 
-            <label className="routine-field">
-              <span>Sleep timing lately?</span>
-              <select name="routine-sleep">
-                <option value="">Select one</option>
-                <option value="early">Mostly on time</option>
-                <option value="late">Too late most nights</option>
-                <option value="irregular">Very irregular</option>
-              </select>
-            </label>
+              <fieldset className="routine-field">
+                <legend>Sleep timing lately?</legend>
+                <div className="option-row">
+                  <label className="option-pill">
+                    <input
+                      type="radio"
+                      name="routine-sleep"
+                      value="on_time"
+                      checked={routineForm.sleep === "on_time"}
+                      onChange={() => setRoutineForm((prev) => ({ ...prev, sleep: "on_time" }))}
+                    />
+                    <span>Mostly on time</span>
+                  </label>
+                  <label className="option-pill">
+                    <input
+                      type="radio"
+                      name="routine-sleep"
+                      value="late"
+                      checked={routineForm.sleep === "late"}
+                      onChange={() => setRoutineForm((prev) => ({ ...prev, sleep: "late" }))}
+                    />
+                    <span>Too late</span>
+                  </label>
+                  <label className="option-pill">
+                    <input
+                      type="radio"
+                      name="routine-sleep"
+                      value="irregular"
+                      checked={routineForm.sleep === "irregular"}
+                      onChange={() => setRoutineForm((prev) => ({ ...prev, sleep: "irregular" }))}
+                    />
+                    <span>Irregular</span>
+                  </label>
+                </div>
+              </fieldset>
 
-            <button className="button routine-submit" type="button">
-              Generate My Plan Instantly
-            </button>
-          </form>
-          <div className="cta-inline">
+              <button
+                className="button routine-submit"
+                type="button"
+                onClick={handleRoutinePlan}
+                disabled={!canGeneratePlan || routineLoading}
+              >
+                {routineLoading ? "Generating..." : "Generate My Plan Instantly"}
+              </button>
+
+              {routineError ? <p className="routine-error">{routineError}</p> : null}
+              {routinePlan ? (
+                <div className="routine-result">
+                  <p className="routine-result-title">Your personalized plan</p>
+                  <p className="routine-result-summary">{routinePlan.summary}</p>
+                  <p className="routine-result-focus">{routinePlan.focus}</p>
+                  <ul>
+                    {routinePlan.steps?.map((step) => (
+                      <li key={step}>{step}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+            </form>
+          </div>
+
+          {/* <div className="cta-inline">
             <a className="button" href="#contact">
               Fix My Routine
             </a>
             <a className="button button-ghost" href="#contact">
               Book 15-min Call
             </a>
-          </div>
+          </div> */}
         </section>
 
         <section className="content-section" id="pain">
@@ -252,85 +405,83 @@ function App() {
             ))}
           </div>
 
-          <p className="pain-close">It’s not laziness. It’s lack of a system.</p>
-          <div className="cta-inline">
+          <p className="pain-close">It’s not laziness. It’s a broken system.</p>
+          {/* <div className="cta-inline">
             <a className="button" href="#contact">
               Fix My Routine
             </a>
             <a className="button button-ghost" href="#contact">
               Book 15-min Call
             </a>
-          </div>
+          </div> */}
         </section>
 
         <section className="content-section founder-section" id="founder">
           <SectionTitle
             eyebrow="Founder"
             title="Hi, I’m Kamakshi."
-            text="I’ve been stuck too — wanting change, planning everything, then still falling off."
+            text="I’ve been through the same cycle — planning, overthinking, not following through."
           />
 
-          <div className="founder-grid">
-            <div className="founder-card">
-              <p>
-                I kept planning my days and ending them feeling guilty. I wasn’t lazy — I just didn’t have a
-                system that fit real life.
-              </p>
-              <p>
-                That’s why I built HabitNudge: to make routines feel doable, not heavy.
-              </p>
+          <div className="founder-card founder-profile">
+            <div className="founder-avatar" aria-hidden="true">
+              <span>K</span>
             </div>
-            <div className="founder-card founder-highlight">
-              <p className="founder-label">How I help</p>
-              <h3>Simple systems that help you follow through.</h3>
-              <p>Clarity first, small steps next, and a routine that actually fits your day.</p>
+            <div className="founder-story">
+              <p className="founder-name">Kamakshi</p>
+              <p>
+                I wasn’t lazy. I just didn’t have a system that worked in real life.
+                That’s why I built HabitNudge — to make routines feel doable, not heavy.
+              </p>
+              <p>
+                I focus on clarity first, small steps next, and a routine that actually fits your day.
+              </p>
             </div>
           </div>
-          <div className="cta-inline">
+          {/* <div className="cta-inline">
             <a className="button" href="#contact">
               Fix My Routine
             </a>
             <a className="button button-ghost" href="#contact">
               Book 15-min Call
             </a>
-          </div>
+          </div> */}
         </section>
 
         <section className="content-section clarity-section" id="clarity-call">
-          <SectionTitle
-            eyebrow="15-minute clarity"
-            title="Fix Your Routine in 15 Minutes — Or Stay Stuck"
-            text="In this 1:1 clarity call, we identify exactly what’s not working and fix it with a simple plan you can actually follow."
-          />
+          <div className="clarity-offer">
+            <div className="clarity-card premium-card">
+              <div className="clarity-header">
+                <span className="clarity-badge">Limited Slots</span>
+                <span className="clarity-price">₹199</span>
+              </div>
+              <h2>Fix Your Routine in 15 Minutes — Or Stay Stuck</h2>
+              <p className="clarity-subtext">
+                In this 1:1 clarity call, we identify exactly what’s not working and fix it with a simple plan you can actually follow.
+              </p>
 
-          <div className="clarity-grid">
-            <div className="clarity-card">
-              <h3>What happens in the session</h3>
-              <p>We find the real block and turn it into a clear, doable routine.</p>
-            </div>
-            <div className="clarity-card">
-              <h3>What you get</h3>
-              <ul>
-                <li>Clarity on what’s actually broken</li>
-                <li>Clear routine breakdown</li>
-                <li>Simple action plan you can start today</li>
-              </ul>
-            </div>
-            <div className="clarity-card">
-              <h3>Why it works</h3>
-              <p>Clarity + simplicity gives you momentum without pressure.</p>
+              <div className="clarity-points">
+                <h3>What you get</h3>
+                <ul>
+                  <li>Clarity on what’s actually broken</li>
+                  <li>Clear routine breakdown</li>
+                  <li>Simple action plan you can start today</li>
+                </ul>
+              </div>
+
+              <div className="clarity-warning">
+                <span className="warning-icon">⚠</span>
+                <p>I only take 5 people per day to keep it personal.</p>
+              </div>
+
+              <a className="button" href="#contact">
+                Book My Call
+              </a>
+              <p className="clarity-note">
+                If you’ve been stuck for weeks or months… this 15-minute call can change that.
+              </p>
             </div>
           </div>
-
-          <div className="clarity-cta">
-            <a className="button" href="#contact">
-              Book My Call
-            </a>
-            <p className="clarity-urgency">⚠ I only take 5 calls per day to keep it personal.</p>
-          </div>
-          <p className="clarity-note">
-            If you’ve been stuck for weeks or months… this 15-minute call can change that.
-          </p>
         </section>
 
         <section className="content-section" id="how">
@@ -360,7 +511,7 @@ function App() {
           <SectionTitle
             eyebrow="Why HabitNudge is different"
             title="Not Another Habit Tracker"
-            text="No guilt. No pressure. No complex tracking. Just a simple, human system that actually works."
+            text="No pressure. No guilt. No complicated tracking. Just clarity + simple systems that actually work."
           />
 
           <div className="difference-grid">
@@ -377,7 +528,7 @@ function App() {
           <SectionTitle
             eyebrow="Visual trust"
             title="See the calm, simple system you’ll use every day."
-            text="Use the habit dashboard on the hero right side, and show progress + streak visuals near the product section."
+            text="Place the habit tracker UI on the hero right side, and the progress dashboard near the product section."
           />
 
           <div className="visual-grid">
@@ -403,13 +554,41 @@ function App() {
             text="A simple habit system with smart nudges to help you stay consistent without feeling overwhelmed."
           />
 
-          <div className="product-card">
-            <p>Habit tracking that feels calm and doable.</p>
-            <p>Smart nudges that guide you back when you slip.</p>
-            <p>A simple system built for real-life consistency.</p>
-            <a className="button" href="#contact">
-              Join Waitlist
-            </a>
+          <div className="product-split">
+            <div className="product-card">
+              <p>Habit tracking that feels calm and doable.</p>
+              <p>Smart nudges that guide you back when you slip.</p>
+              <p>A simple system built for real-life consistency.</p>
+              <a className="button" href="#contact">
+                Join Waitlist
+              </a>
+            </div>
+
+            <div className="product-visuals">
+              <div className="visual-card">
+                <h3>Habit dashboard</h3>
+                <p>Today’s habits, status chips, and a clear done state.</p>
+                <div className="mini-list">
+                  <span>Skincare • Done</span>
+                  <span>Water • 2/3</span>
+                  <span>Walk • Next</span>
+                </div>
+              </div>
+              <div className="visual-card">
+                <h3>Daily routine tracker</h3>
+                <p>Morning to night flow with gentle nudges.</p>
+                <div className="mini-bars">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
+              <div className="visual-card">
+                <h3>Progress & streaks</h3>
+                <p>Weekly streak ring and simple progress stats.</p>
+                <div className="mini-ring" />
+              </div>
+            </div>
           </div>
         </section>
 
@@ -431,7 +610,7 @@ function App() {
         </section>
 
         <section className="content-section cta-band" id="closing-cta">
-          <div className="cta-copy">
+          <div className="cta-copy centered-cta">
             <p className="eyebrow">Final nudge</p>
             <h2>You don’t need to stay stuck anymore.</h2>
             <p className="section-text">You’re not broken — you just need the right system. Start now.</p>
